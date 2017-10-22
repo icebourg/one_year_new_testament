@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>One Year New Testament</title>
+  <style type="text/css">
+    html {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      color: #222;
+      font-size: 22px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
+      line-height: 1.5em;
+      padding: 0 10px 0 64px;
+    }
+
+    a {
+        color: #81F;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        width: 700px;
+        display: block;
+        text-align: left;
+        padding: 5px 30px 10px 20px;
+        margin-top: 5%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <% plan.keys.each do |month| %>
+    <h1><%= month %></h1>
+    <ol>
+      <% plan[month].each do |reference| %>
+      <li> <a href="https://www.biblegateway.com/passage/?search=<%= URI::encode(reference.downcase) %>&version=NLT"><%= reference %></a></li>
+      <% end %>
+    </ol>
+    <% end %>
+  </div>
+</body>
